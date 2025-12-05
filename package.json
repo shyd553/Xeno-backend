@@ -1,0 +1,22 @@
+{
+  "name": "xeno-assignment--fde",
+  "version": "1.0.0",
+  "description": "Shopify ingestion + insights backend for Xeno assignment",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^5.14.0",
+    "axios": "^1.13.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "prisma": "^5.14.0"
+  }
+}

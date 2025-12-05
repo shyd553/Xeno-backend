@@ -1,0 +1,59 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Tenant {
+  id        String     @id @default(cuid())
+  name      String?
+  tenantKey String     @unique
+  customers Customer[]
+  orders    Order[]
+  products  Product[]
+}
+
+model Customer {
+  id         String  @id @default(cuid())
+  tenantId   String
+  tenant     Tenant  @relation(fields: [tenantId], references: [id])
+  shopifyId  String?
+  email      String?
+  name       String?
+  totalSpent Float   @default(0)
+
+  // FIXED: added relation back to Order.customer
+  orders Order[]
+}
+
+model Product {
+  id        String  @id @default(cuid())
+  tenantId  String
+  tenant    Tenant  @relation(fields: [tenantId], references: [id])
+  shopifyId String?
+  title     String
+  price     Float
+}
+
+model Order {
+  id       String @id @default(cuid())
+  tenantId String
+  tenant   Tenant @relation(fields: [tenantId], references: [id])
+
+  shopifyId  String?
+  totalPrice Float
+  createdAt  DateTime @default(now())
+
+  // FIXED: Add customer relation properly
+  customerId String?
+  customer   Customer? @relation(fields: [customerId], references: [id])
+}
