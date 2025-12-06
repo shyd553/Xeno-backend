@@ -85,9 +85,9 @@ PORT=10000
 Render automatically injects the correct environment variables during deployment.
 
 ## How to run locally
-npm install
-npx prisma migrate dev
-node server.js
+1. npm install
+2. npx prisma migrate dev
+3. node server.js
 The server runs at:
 http://localhost:4000
 
