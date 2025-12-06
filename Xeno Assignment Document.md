@@ -84,7 +84,18 @@ Returns daily revenue trend for charts.
 GET /metrics/topCustomers?tenantKey=testTenant
 Returns highest-spending customers.
 
-## 7. Deployment Overview
+## 7. Git and Deployment Overview
+### Pushing code to git:
+First, we will create repository on github and push our code to github.
+Use command:
+1. git init- to start git
+2. git add .- to stage files
+3. git commit -m "Initial commit" - to commit
+4. **For fronend** git remote add origin https://github.com/shyd553/Xeno-fronend.git- add github repository URL for frontend
+5. **For backend** git remote add origin https://github.com/shyd553/Xeno-backendend.git- add github repository URL for backend
+6. git branch -M main - push code to git
+7. git push -u origin main - push code to github
+   
 ### Backend Deployment (Render):
 The backend runs on Render as a Node.js web service.
 Render automatically:
