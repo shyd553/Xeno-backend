@@ -3,11 +3,11 @@ This project is a complete data ingestion and analytics platform built as part o
 The goal of the system is to ingest Shopify store data (customers, products, and orders), store it securely using a multi-tenant architecture, and then provide meaningful insights through a dashboard interface.
 
 The solution includes:
-Creating Shopify account to generate sample data.
-A backend service built with Node.js, Express, Prisma, and PostgreSQL.
-A frontend dashboard built with React and Vite.
-A cloud-hosted PostgreSQL database on Render.
-Fully deployed frontend (Vercel) and backend .(Render)
+1. Creating Shopify account to generate sample data.
+2. A backend service built with Node.js, Express, Prisma, and PostgreSQL.
+3. A frontend dashboard built with React and Vite.
+4. A cloud-hosted PostgreSQL database on Render.
+5. Fully deployed frontend (Vercel) and backend .(Render)
 
 The platform allows any Shopify store to send data to the ingestion API and immediately visualize insights like revenue trends, customer counts, order analytics, and top customers.
 
