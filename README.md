@@ -88,7 +88,7 @@ Render automatically injects the correct environment variables during deployment
 1. npm install
 2. npx prisma migrate dev
 3. node server.js
-The server runs at:
+4. The server runs at:
 http://localhost:4000
 
 ## Deployment on Render
