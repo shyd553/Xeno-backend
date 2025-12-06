@@ -91,7 +91,15 @@ Render automatically injects the correct environment variables during deployment
 4. The server runs at localhost 4000
 
 ## Deployment on Render
-
+First, we will create repository on github and push our code to github.
+Use command:
+1. git init- to start git
+2. git add .- to stage files
+3. git commit -m "Initial commit" - to commit
+4. git remote add origin https://github.com/shyd553/Xeno-bronend.git- add github repository URL
+5. git branch -M main - push code to git
+6. git push -u origin main - push code to github
+   
 The backend is deployed as a Render Web Service.
 Render listens for new commits on GitHub and redeploys automatically.
 The PostgreSQL database is also hosted on Render, and Prisma migrations keep the schema in sync.
