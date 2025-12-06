@@ -57,24 +57,21 @@ Defines all database models and relations. Prisma generates the database tables 
 
 ## API Endpoints
 
-1. Ingest Shopify Data
+### 1. Ingest Shopify Data
 POST /ingest/:tenantKey/shopify
-
-Body includes:
-```json
+Body includes:(data from json files)
 {
   "customers": [...],
   "products": [...],
   "orders": [...]
 }
-
-2. Summary Insights
+### 2. Summary Insights
 GET /metrics/summary?tenantKey=testTenant
 **link-** https://xeno-backend-5e1f.onrender.com/metrics/summary?tenantKey=testTenant
-3. Revenue By Date
+### 3. Revenue By Date
 GET /metrics/ordersByDate?tenantKey=testTenant
 **link-** https://xeno-backend-5e1f.onrender.com/metrics/ordersByDate?tenantKey=testTenant
-4. Top 5 Customers
+### 4. Top 5 Customers
 GET /metrics/topCustomers?tenantKey=testTenant
 **link-** https://xeno-backend-5e1f.onrender.com/metrics/topCustomers?tenantKey=testTenant
 
