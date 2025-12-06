@@ -31,10 +31,10 @@ The backend is responsible for processing Shopify data, storing it in a structur
 ### How the backend works (
 
 When a store sends its Shopify export (customers/products/orders) to the ingestion endpoint, the backend:
-Creates or identifies the tenant
-Stores customers, products, and orders in clean, relational tables
-Calculates metrics like total revenue automatically
-Exposes analytics APIs consumed by the frontend dashboard
+1. Creates or identifies the tenant
+2. Stores customers, products, and orders in clean, relational tables
+3. Calculates metrics like total revenue automatically
+4. Exposes analytics APIs consumed by the frontend dashboard
 
 This separation of ingestion vs. analytics keeps the system modular and easy to extend.
 
@@ -42,10 +42,10 @@ This separation of ingestion vs. analytics keeps the system modular and easy to 
 
 The frontend is a React + Vite dashboard deployed on Vercel. Its purpose is to visualize data stored in the backend using clean graphs and responsive UI components.
 Once the backend has ingested Shopify data, the frontend:
-Calls backend APIs using fetch / Axios
-Displays summary metrics
-Shows revenue trends in a line graph
-Lists top customers with their spending
+1. Calls backend APIs using fetch / Axios
+2. Displays summary metrics
+3. Shows revenue trends in a line graph
+4. Lists top customers with their spending
 
 All dynamic data is fetched using:   import.meta.env.VITE_API_URL
 This allows seamless switching between development and deployed environments.
@@ -55,16 +55,13 @@ This allows seamless switching between development and deployed environments.
 The PostgreSQL database follows a multi-tenant relational model, meaning multiple stores can use the system without mixing data.
 The Prisma schema defines four main entities:
 
-Tenant
+1. Tenant
 Represents each unique Shopify store using the system.
-
-Customer
+2. Customer
 Stores details such as name, email, and lifetime value (totalSpent).
-
-Product
+3. Product
 Stores Shopify product details including title and price.
-
-Order
+4. Order
 Stores order-level data such as total price and creation timestamps.
 
 **Prisma manages migrations, schema validations, and safe database operations.
@@ -75,15 +72,15 @@ Data Ingestion
 POST /ingest/:tenantKey/shopify
 Used to upload Shopify customers, orders, and products.
 
-Summary Insights
+1. Summary Insights
 GET /metrics/summary?tenantKey=testTenant
 Returns: total customers, total orders, total revenue
 
-Revenue by Date
+2. Revenue by Date
 GET /metrics/ordersByDate?tenantKey=testTenant
 Returns daily revenue trend for charts.
 
-Top Customers
+3. Top Customers
 GET /metrics/topCustomers?tenantKey=testTenant
 Returns highest-spending customers.
 
@@ -91,11 +88,11 @@ Returns highest-spending customers.
 ### Backend Deployment (Render):
 The backend runs on Render as a Node.js web service.
 Render automatically:
-installs dependencies
-sets environment variables
-hosts PostgreSQL
-rebuilds on every commit
-handles dynamic ports
+1. installs dependencies
+2. sets environment variables
+3. hosts PostgreSQL
+4. rebuilds on every commit
+5. handles dynamic ports
 
 ### Frontend Deployment (Vercel):
 The frontend is deployed on Vercel, which automatically builds and hosts the Vite React app.
